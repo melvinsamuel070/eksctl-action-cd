@@ -1,0 +1,32 @@
+name: 'eksctl Action'
+description: 'Setup and run eksctl commands for EKS clusters.'
+author: 'melvinsamuel070'
+branding:
+  icon: 'server'
+  color: 'blue'
+
+inputs:
+  eksctl_url:
+    description: 'URL to download the eksctl binary'
+    required: true
+    default: 'https://github.com/eksctl-io/eksctl/releases/download/v0.194.0/eksctl_Linux_amd64.tar.gz
+'
+  aws_access_key_id:
+    description: 'AWS Access Key ID'
+    required: true
+  aws_secret_access_key:
+    description: 'AWS Secret Access Key'
+    required: true
+  aws_region:
+    description: 'AWS Region'
+    required: true
+    default: 'us-east-1'
+
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
+  args:
+    - ${{ inputs.eksctl_url }}
+    - ${{ inputs.aws_access_key_id }}
+    - ${{ inputs.aws_secret_access_key }}
+    - ${{ inputs.aws_region }}
