@@ -28,7 +28,7 @@ jobs:
         uses: actions/checkout@v3
 
       - name: Setup and deploy with eksctl
-        uses: your-username/eksctl-action@v1
+        uses: melvinsamuel070/eksctl-action@v1
         with:
           eksctl_url: 'https://github.com/eksctl-io/eksctl/releases/download/v0.194.0/eksctl_Linux_amd64.tar.gz
           '
